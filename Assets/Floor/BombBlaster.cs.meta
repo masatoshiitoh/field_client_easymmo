@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 7180af8da0723784181f095cb7d55ecb
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - bombType: {fileID: 100000, guid: dc533b4ca16d3cd4d94b4d9e8b3376f0, type: 2}
+  - audioClip: {fileID: 8300000, guid: 1792989a5a33779428d2dbe9a9430605, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

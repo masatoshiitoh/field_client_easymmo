@@ -1,0 +1,27 @@
+Initialize engine version: 4.5.1f3 (73cd57f80e3e)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [nvd3dum.dll 9.18.13.4052]
+    Renderer: NVIDIA GeForce GTX 780M  
+    Vendor:   NVIDIA
+    VRAM:     3072 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=0 INTZ=1 RAWZ=0 NULL=1 RESZ=0 SlowINTZ=0
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\b-itoh\OneDrive\dev\dev-easymmo_unity\bomb_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\b-itoh\OneDrive\dev\dev-easymmo_unity\bomb_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\b-itoh\OneDrive\dev\dev-easymmo_unity\bomb_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\b-itoh\OneDrive\dev\dev-easymmo_unity\bomb_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\b-itoh\OneDrive\dev\dev-easymmo_unity\bomb_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\b-itoh\OneDrive\dev\dev-easymmo_unity\bomb_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\b-itoh\OneDrive\dev\dev-easymmo_unity\bomb_Data\Managed\RabbitMQ.Client.dll (this message is harmless)
+Loading C:\Users\b-itoh\OneDrive\dev\dev-easymmo_unity\bomb_Data\Managed\RabbitMQ.Client.dll into Unity Child Domain
+- Completed reload, in  0.095 seconds
+desktop: 2560x1440 59Hz; virtual: 2560x1440 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: C:\Users\b-itoh\OneDrive\dev\dev-easymmo_unity\bomb_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\Users\b-itoh\OneDrive\dev\dev-easymmo_unity\bomb_Data\Managed\System.Configuration.dll (this message is harmless)
+Platform assembly: C:\Users\b-itoh\OneDrive\dev\dev-easymmo_unity\bomb_Data\Managed\System.Xml.dll (this message is harmless)
+Fallback handler could not load library C:/Users/b-itoh/OneDrive/dev/dev-easymmo_unity/bomb_Data/Mono/libc
+Fallback handler could not load library C:/Users/b-itoh/OneDrive/dev/dev-easymmo_unity/bomb_Data/Mono/.\libc
+Fallback handler could not load library C:/Users/b-itoh/OneDrive/dev/dev-easymmo_unity/bomb_Data/Mono/libc
