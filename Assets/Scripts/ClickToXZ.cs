@@ -15,7 +15,7 @@ public class ClickToXZ : MonoBehaviour {
 		if (Input.GetMouseButtonDown (0) == true) {
 			Vector3 screenPoint = Input.mousePosition;
 			screenPoint.z = 10.0f;
-			worldPoint = camera.ScreenToWorldPoint (screenPoint);
+			worldPoint = GetComponent<Camera>().ScreenToWorldPoint (screenPoint);
 			Debug.Log (worldPoint);
 
 			if (character != null) {

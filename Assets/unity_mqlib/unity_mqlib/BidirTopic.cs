@@ -102,10 +102,10 @@ public class BidirTopic : MonoBehaviour {
 			var routingKey = ea.RoutingKey;
 			var message = Encoding.UTF8.GetString(body);
 			queue.Enqueue(message + " from " + routingKey);
-
-			if (routingKey.StartsWith("move")) {
+			Debug.Log(message + " from " + routingKey);
+			//if (routingKey.StartsWith("move")) {
 				this.BlastOnce();
-			}
+			//}
 		}
 	}
 	

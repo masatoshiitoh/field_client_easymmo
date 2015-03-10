@@ -1,6 +1,6 @@
 #pragma strict
 
 
-this.renderer.material.renderQueue = 1000;
+this.GetComponent.<Renderer>().material.renderQueue = 1000;
 
 

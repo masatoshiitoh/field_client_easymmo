@@ -806,23 +806,23 @@ Helpers();
 sunTex = GameObject.Find("/SkySphere/Sun & Moon/SunLight/Sun");	
 sunHorizonTex = GameObject.Find("/SkySphere/Sun & Moon/SunLight/Sun/SunHorizon");
 
-sunColor = Color(sunTex.renderer.material.GetColor("_TintColor").r,sunTex.renderer.material.GetColor("_TintColor").g
-, sunTex.renderer.material.GetColor("_TintColor").b, 0);
+sunColor = Color(sunTex.GetComponent.<Renderer>().material.GetColor("_TintColor").r,sunTex.GetComponent.<Renderer>().material.GetColor("_TintColor").g
+, sunTex.GetComponent.<Renderer>().material.GetColor("_TintColor").b, 0);
 
-sunHorizonColor = Color(sunHorizonTex.renderer.material.GetColor("_TintColor").r,sunHorizonTex.renderer.material.GetColor("_TintColor").g
-, sunHorizonTex.renderer.material.GetColor("_TintColor").b, 0);
+sunHorizonColor = Color(sunHorizonTex.GetComponent.<Renderer>().material.GetColor("_TintColor").r,sunHorizonTex.GetComponent.<Renderer>().material.GetColor("_TintColor").g
+, sunHorizonTex.GetComponent.<Renderer>().material.GetColor("_TintColor").b, 0);
 
-sunColor2 = Color(sunTex.renderer.material.GetColor("_TintColor").r,sunTex.renderer.material.GetColor("_TintColor").g
-, sunTex.renderer.material.GetColor("_TintColor").b, sunTex.renderer.material.GetColor("_TintColor").a);
+sunColor2 = Color(sunTex.GetComponent.<Renderer>().material.GetColor("_TintColor").r,sunTex.GetComponent.<Renderer>().material.GetColor("_TintColor").g
+, sunTex.GetComponent.<Renderer>().material.GetColor("_TintColor").b, sunTex.GetComponent.<Renderer>().material.GetColor("_TintColor").a);
 
-sunHorizonColor2 = Color(sunHorizonTex.renderer.material.GetColor("_TintColor").r,sunHorizonTex.renderer.material.GetColor("_TintColor").g
-, sunHorizonTex.renderer.material.GetColor("_TintColor").b, sunHorizonTex.renderer.material.GetColor("_TintColor").a);
+sunHorizonColor2 = Color(sunHorizonTex.GetComponent.<Renderer>().material.GetColor("_TintColor").r,sunHorizonTex.GetComponent.<Renderer>().material.GetColor("_TintColor").g
+, sunHorizonTex.GetComponent.<Renderer>().material.GetColor("_TintColor").b, sunHorizonTex.GetComponent.<Renderer>().material.GetColor("_TintColor").a);
 
-sunColor3 = Color(sunTex.renderer.material.GetColor("_TintColor").r,sunTex.renderer.material.GetColor("_TintColor").g
-, sunTex.renderer.material.GetColor("_TintColor").b, 0.8);
+sunColor3 = Color(sunTex.GetComponent.<Renderer>().material.GetColor("_TintColor").r,sunTex.GetComponent.<Renderer>().material.GetColor("_TintColor").g
+, sunTex.GetComponent.<Renderer>().material.GetColor("_TintColor").b, 0.8);
 
-sunHorizonColor3 = Color(sunHorizonTex.renderer.material.GetColor("_TintColor").r,sunHorizonTex.renderer.material.GetColor("_TintColor").g
-, sunHorizonTex.renderer.material.GetColor("_TintColor").b, 0.0);
+sunHorizonColor3 = Color(sunHorizonTex.GetComponent.<Renderer>().material.GetColor("_TintColor").r,sunHorizonTex.GetComponent.<Renderer>().material.GetColor("_TintColor").g
+, sunHorizonTex.GetComponent.<Renderer>().material.GetColor("_TintColor").b, 0.0);
 
 //CASES FOG
 	if (FogSettings.ModeOfTheFog == modeOfTheFog.Linear && FogSettings.dinamicFog==true){
@@ -1003,13 +1003,13 @@ sunHorizonColor3 = Color(sunHorizonTex.renderer.material.GetColor("_TintColor").
 	GeneralSettings.mainCamera.cullingMask = GeneralSettings.mainCamera.cullingMask & ~(1 << GeneralSettings.skyProjectLayer);
 	cameraOfSky = new GameObject("CameraOfSky");
 	cameraOfSky.AddComponent (Camera);
-	cameraOfSky.camera.clearFlags = CameraClearFlags.Color;
-	cameraOfSky.camera.depth = -10;
-	cameraOfSky.camera.cullingMask = 1 << GeneralSettings.skyProjectLayer;
-	cameraOfSky.camera.transform.position = this.transform.position;
-	cameraOfSky.camera.fieldOfView = GeneralSettings.mainCamera.camera.fieldOfView;
-	cameraOfSky.camera.nearClipPlane = 0.01;
-	cameraOfSky.camera.backgroundColor = Color.black;
+	cameraOfSky.GetComponent.<Camera>().clearFlags = CameraClearFlags.Color;
+	cameraOfSky.GetComponent.<Camera>().depth = -10;
+	cameraOfSky.GetComponent.<Camera>().cullingMask = 1 << GeneralSettings.skyProjectLayer;
+	cameraOfSky.GetComponent.<Camera>().transform.position = this.transform.position;
+	cameraOfSky.GetComponent.<Camera>().fieldOfView = GeneralSettings.mainCamera.GetComponent.<Camera>().fieldOfView;
+	cameraOfSky.GetComponent.<Camera>().nearClipPlane = 0.01;
+	cameraOfSky.GetComponent.<Camera>().backgroundColor = Color.black;
 	billboardCamera = GeneralSettings.mainCamera;
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1216,14 +1216,14 @@ night = false;
 	//SunColor
 	if(LightSettings.Sun !=null && LightSettings.dinamicLight==true){
 	if(stopSunColor==false){
-	LightSettings.Sun.light.color = Color.Lerp(LightSettings.Sun.light.color,LightSettings.LightColors.SunRiseLight,timeLerpSunColors);
+	LightSettings.Sun.GetComponent.<Light>().color = Color.Lerp(LightSettings.Sun.GetComponent.<Light>().color,LightSettings.LightColors.SunRiseLight,timeLerpSunColors);
 	}
 	}	
 	
 	//Sun.light Intensity
 	if( LightSettings.Sun!=null && LightSettings.dinamicLight==true){
 	if(stopSunIntensity==false){
-	LightSettings.Sun.light.intensity = Mathf.Lerp(LightSettings.Sun.light.intensity, LightSettings.Intensities.sunRiseIntensity, timeLerpIntensity);
+	LightSettings.Sun.GetComponent.<Light>().intensity = Mathf.Lerp(LightSettings.Sun.GetComponent.<Light>().intensity, LightSettings.Intensities.sunRiseIntensity, timeLerpIntensity);
 	}
 	}
 	
@@ -1237,7 +1237,7 @@ night = false;
 	//Clouds Color
 	if(CloudSettings.clouds!=null && CloudSettings.cloudsInGame==true){
 	if(stopClouds==false){
-	CloudSettings.clouds.renderer.material.SetColor("_TintColor", Color.Lerp(CloudSettings.clouds.renderer.material.GetColor("_TintColor"),
+	CloudSettings.clouds.GetComponent.<Renderer>().material.SetColor("_TintColor", Color.Lerp(CloudSettings.clouds.GetComponent.<Renderer>().material.GetColor("_TintColor"),
 	CloudSettings.CloudsColors.SunRiseCloudsColor,timeLerpCloudsColors));
 	}
 	}
@@ -1577,14 +1577,14 @@ night = false;
 	//SunColor
 	if( LightSettings.Sun!=null && LightSettings.dinamicLight==true){
 	if(stopSunColor==false){
-	LightSettings.Sun.light.color = Color.Lerp(LightSettings.Sun.light.color,LightSettings.LightColors.DayLight,timeLerpSunColors);
+	LightSettings.Sun.GetComponent.<Light>().color = Color.Lerp(LightSettings.Sun.GetComponent.<Light>().color,LightSettings.LightColors.DayLight,timeLerpSunColors);
 	}
 	}
 	
 	//Sun.light Intensity
 	if( LightSettings.Sun!=null && LightSettings.dinamicLight==true){
 	if(stopSunIntensity==false){
-	LightSettings.Sun.light.intensity = Mathf.Lerp(LightSettings.Sun.light.intensity, LightSettings.Intensities.dayIntensity, timeLerpIntensity);
+	LightSettings.Sun.GetComponent.<Light>().intensity = Mathf.Lerp(LightSettings.Sun.GetComponent.<Light>().intensity, LightSettings.Intensities.dayIntensity, timeLerpIntensity);
 	}
 	}
 	
@@ -1597,7 +1597,7 @@ night = false;
 	//Clouds Color
 	if(!CloudSettings.clouds==null && CloudSettings.cloudsInGame==true){
 	if(stopClouds==false){
-	CloudSettings.clouds.renderer.material.SetColor("_TintColor", Color.Lerp(CloudSettings.clouds.renderer.material.GetColor("_TintColor"),
+	CloudSettings.clouds.GetComponent.<Renderer>().material.SetColor("_TintColor", Color.Lerp(CloudSettings.clouds.GetComponent.<Renderer>().material.GetColor("_TintColor"),
 	CloudSettings.CloudsColors.DayCloudsColor,timeLerpCloudsColors));
 	}
 	}
@@ -1932,13 +1932,13 @@ night = false;
 	//SunColor
 	if( LightSettings.Sun!=null && LightSettings.dinamicLight==true){
 	if(stopSunColor==false){
-	LightSettings.Sun.light.color = Color.Lerp(LightSettings.Sun.light.color,LightSettings.LightColors.SunSetLight,timeLerpSunColors);
+	LightSettings.Sun.GetComponent.<Light>().color = Color.Lerp(LightSettings.Sun.GetComponent.<Light>().color,LightSettings.LightColors.SunSetLight,timeLerpSunColors);
 	}
 	}
 	//Sun.light Intensity
 	if( LightSettings.Sun!=null && LightSettings.dinamicLight==true){
 	if(stopSunIntensity==false){
-	LightSettings.Sun.light.intensity = Mathf.Lerp(LightSettings.Sun.light.intensity, LightSettings.Intensities.sunSetIntensity, timeLerpIntensity);
+	LightSettings.Sun.GetComponent.<Light>().intensity = Mathf.Lerp(LightSettings.Sun.GetComponent.<Light>().intensity, LightSettings.Intensities.sunSetIntensity, timeLerpIntensity);
 	}
 	}
 	
@@ -1952,7 +1952,7 @@ night = false;
 	//Clouds Color
 	if(CloudSettings.clouds!=null && CloudSettings.cloudsInGame==true){
 	if(stopClouds==false){
-	CloudSettings.clouds.renderer.material.SetColor("_TintColor", Color.Lerp(CloudSettings.clouds.renderer.material.GetColor("_TintColor"),
+	CloudSettings.clouds.GetComponent.<Renderer>().material.SetColor("_TintColor", Color.Lerp(CloudSettings.clouds.GetComponent.<Renderer>().material.GetColor("_TintColor"),
 	CloudSettings.CloudsColors.SunSetCloudsColor,timeLerpCloudsColors));
 	}
 	}
@@ -2289,14 +2289,14 @@ night=true;
 	//SunColor
 	if( LightSettings.Sun!=null && LightSettings.dinamicLight==true){
 	if(stopSunColor==false){
-	LightSettings.Sun.light.color = Color.Lerp(LightSettings.Sun.light.color,LightSettings.LightColors.NightLight,timeLerpSunColors);
+	LightSettings.Sun.GetComponent.<Light>().color = Color.Lerp(LightSettings.Sun.GetComponent.<Light>().color,LightSettings.LightColors.NightLight,timeLerpSunColors);
 	}
 	}
 	
 	//Sun.light Intensity
 	if( LightSettings.Sun!=null && LightSettings.dinamicLight==true){
 	if(stopSunIntensity==false){
-	LightSettings.Sun.light.intensity = Mathf.Lerp(LightSettings.Sun.light.intensity, LightSettings.Intensities.nightIntensity, timeLerpIntensity);
+	LightSettings.Sun.GetComponent.<Light>().intensity = Mathf.Lerp(LightSettings.Sun.GetComponent.<Light>().intensity, LightSettings.Intensities.nightIntensity, timeLerpIntensity);
 	}
 	}
 	
@@ -2310,7 +2310,7 @@ night=true;
 	//Clouds Color
 	if(CloudSettings.clouds!=null && CloudSettings.cloudsInGame==true){
 	if(stopClouds==false){
-	CloudSettings.clouds.renderer.material.SetColor("_TintColor", Color.Lerp(CloudSettings.clouds.renderer.material.GetColor("_TintColor"),
+	CloudSettings.clouds.GetComponent.<Renderer>().material.SetColor("_TintColor", Color.Lerp(CloudSettings.clouds.GetComponent.<Renderer>().material.GetColor("_TintColor"),
 	CloudSettings.CloudsColors.NightCloudsColor,timeLerpCloudsColors));
 	}
 	}
@@ -2636,7 +2636,7 @@ WinterTimeCheck  = false;
 
 if(SplashScreens.SplashScreensInGame==true){
 
-SplashScreens.SplashTextures.springSplash.guiTexture.enabled=true;
+SplashScreens.SplashTextures.springSplash.GetComponent.<GUITexture>().enabled=true;
 
 }
 if(Terrain.activeTerrain != null){
@@ -2704,7 +2704,7 @@ WinterTimeCheck  = false;
 
 if(SplashScreens.SplashScreensInGame==true){
 
-SplashScreens.SplashTextures.summerSplash.guiTexture.enabled=true;
+SplashScreens.SplashTextures.summerSplash.GetComponent.<GUITexture>().enabled=true;
 
 }
 if(GeneralSettings.terrainvar != null){
@@ -2768,7 +2768,7 @@ WinterTimeCheck  = false;
 
 if(SplashScreens.SplashScreensInGame==true){
 
-SplashScreens.SplashTextures.auttumSplash.guiTexture.enabled=true;
+SplashScreens.SplashTextures.auttumSplash.GetComponent.<GUITexture>().enabled=true;
 
 }
 if(GeneralSettings.terrainvar != null){
@@ -2834,7 +2834,7 @@ WinterTimeCheck  = true;
 
 if(SplashScreens.SplashScreensInGame==true){
 
-SplashScreens.SplashTextures.winterSplash.guiTexture.enabled=true;
+SplashScreens.SplashTextures.winterSplash.GetComponent.<GUITexture>().enabled=true;
 
 }
 if(Terrain.activeTerrain != null){
@@ -2907,11 +2907,11 @@ function SplashUpdate(){
 
 if(SplashScreens.SplashScreensInGame==true){
 
-if(SplashScreens.SplashTextures.springSplash.guiTexture.enabled==true){
+if(SplashScreens.SplashTextures.springSplash.GetComponent.<GUITexture>().enabled==true){
 
 if(Lerping==true){
 alpha = Mathf.Lerp(alpha, 1, SplashScreens.fadeInTime * Time.deltaTime);
-SplashScreens.SplashTextures.springSplash.guiTexture.color = new Color(0.4,0.4,0.4, alpha);
+SplashScreens.SplashTextures.springSplash.GetComponent.<GUITexture>().color = new Color(0.4,0.4,0.4, alpha);
 }
 if(alpha >= 0.5){
 yield WaitForSeconds(SplashScreens.waitTime);
@@ -2919,20 +2919,20 @@ Lerping=false;
 }
 if(Lerping==false){
 alpha = Mathf.Lerp(alpha, -0.5, SplashScreens.fadeOutTime * Time.deltaTime);
-SplashScreens.SplashTextures.springSplash.guiTexture.color = new Color(0.4,0.4,0.4, alpha);
+SplashScreens.SplashTextures.springSplash.GetComponent.<GUITexture>().color = new Color(0.4,0.4,0.4, alpha);
 }
 if(alpha <= 0 && Lerping == false){
-SplashScreens.SplashTextures.springSplash.guiTexture.enabled=false;
+SplashScreens.SplashTextures.springSplash.GetComponent.<GUITexture>().enabled=false;
 alpha=0;
 Lerping=true;
 }
 }
 
-if(SplashScreens.SplashTextures.summerSplash.guiTexture.enabled==true){
+if(SplashScreens.SplashTextures.summerSplash.GetComponent.<GUITexture>().enabled==true){
 
 if(Lerping==true){
 alpha = Mathf.Lerp(alpha, 1, SplashScreens.fadeInTime * Time.deltaTime);
-SplashScreens.SplashTextures.summerSplash.guiTexture.color = new Color(0.4,0.4,0.4, alpha);
+SplashScreens.SplashTextures.summerSplash.GetComponent.<GUITexture>().color = new Color(0.4,0.4,0.4, alpha);
 }
 if(alpha >= 0.5){
 yield WaitForSeconds(SplashScreens.waitTime);
@@ -2940,20 +2940,20 @@ Lerping=false;
 }
 if(Lerping==false){
 alpha = Mathf.Lerp(alpha, -0.5, SplashScreens.fadeOutTime * Time.deltaTime);
-SplashScreens.SplashTextures.summerSplash.guiTexture.color = new Color(0.4,0.4,0.4, alpha);
+SplashScreens.SplashTextures.summerSplash.GetComponent.<GUITexture>().color = new Color(0.4,0.4,0.4, alpha);
 }
 if(alpha <= 0 && Lerping == false){
-SplashScreens.SplashTextures.summerSplash.guiTexture.enabled=false;
+SplashScreens.SplashTextures.summerSplash.GetComponent.<GUITexture>().enabled=false;
 alpha=0;
 Lerping=true;
 }
 }
 
-if(SplashScreens.SplashTextures.auttumSplash.guiTexture.enabled==true){
+if(SplashScreens.SplashTextures.auttumSplash.GetComponent.<GUITexture>().enabled==true){
 
 if(Lerping==true){
 alpha = Mathf.Lerp(alpha, 1, SplashScreens.fadeInTime * Time.deltaTime);
-SplashScreens.SplashTextures.auttumSplash.guiTexture.color = new Color(0.4,0.4,0.4, alpha);
+SplashScreens.SplashTextures.auttumSplash.GetComponent.<GUITexture>().color = new Color(0.4,0.4,0.4, alpha);
 }
 if(alpha >= 0.5){
 yield WaitForSeconds(SplashScreens.waitTime);
@@ -2961,20 +2961,20 @@ Lerping=false;
 }
 if(Lerping==false){
 alpha = Mathf.Lerp(alpha, -0.5, SplashScreens.fadeOutTime * Time.deltaTime);
-SplashScreens.SplashTextures.auttumSplash.guiTexture.color = new Color(0.4,0.4,0.4, alpha);
+SplashScreens.SplashTextures.auttumSplash.GetComponent.<GUITexture>().color = new Color(0.4,0.4,0.4, alpha);
 }
 if(alpha <= 0 && Lerping == false){
-SplashScreens.SplashTextures.auttumSplash.guiTexture.enabled=false;
+SplashScreens.SplashTextures.auttumSplash.GetComponent.<GUITexture>().enabled=false;
 alpha=0;
 Lerping=true;
 }
 }
 
-if(SplashScreens.SplashTextures.winterSplash.guiTexture.enabled==true){
+if(SplashScreens.SplashTextures.winterSplash.GetComponent.<GUITexture>().enabled==true){
 
 if(Lerping==true){
 alpha = Mathf.Lerp(alpha, 1, SplashScreens.fadeInTime * Time.deltaTime);
-SplashScreens.SplashTextures.winterSplash.guiTexture.color = new Color(0.4,0.4,0.4, alpha);
+SplashScreens.SplashTextures.winterSplash.GetComponent.<GUITexture>().color = new Color(0.4,0.4,0.4, alpha);
 }
 if(alpha >= 0.5){
 yield WaitForSeconds(SplashScreens.waitTime);
@@ -2982,10 +2982,10 @@ Lerping=false;
 }
 if(Lerping==false){
 alpha = Mathf.Lerp(alpha, -0.5, SplashScreens.fadeOutTime * Time.deltaTime);
-SplashScreens.SplashTextures.winterSplash.guiTexture.color = new Color(0.4,0.4,0.4, alpha);
+SplashScreens.SplashTextures.winterSplash.GetComponent.<GUITexture>().color = new Color(0.4,0.4,0.4, alpha);
 }
 if(alpha <= 0 && Lerping == false){
-SplashScreens.SplashTextures.winterSplash.guiTexture.enabled=false;
+SplashScreens.SplashTextures.winterSplash.GetComponent.<GUITexture>().enabled=false;
 alpha=0;
 Lerping=true;
 }
@@ -3059,26 +3059,26 @@ if (timeLerpSun < 1 || timeLerpSun==0){
 	timeLerpSun += Time.deltaTime/1;
 	}
 if(sunRise || sunSet){
-sunTex.renderer.material.SetColor("_TintColor", Color.Lerp(sunTex.renderer.material.GetColor("_TintColor"),
+sunTex.GetComponent.<Renderer>().material.SetColor("_TintColor", Color.Lerp(sunTex.GetComponent.<Renderer>().material.GetColor("_TintColor"),
 sunColor2,timeLerpSun));
 
-sunHorizonTex.renderer.material.SetColor("_TintColor", Color.Lerp(sunHorizonTex.renderer.material.GetColor("_TintColor"),
+sunHorizonTex.GetComponent.<Renderer>().material.SetColor("_TintColor", Color.Lerp(sunHorizonTex.GetComponent.<Renderer>().material.GetColor("_TintColor"),
 sunHorizonColor2,timeLerpSun));
 }
 
 if(day){
-sunTex.renderer.material.SetColor("_TintColor", Color.Lerp(sunTex.renderer.material.GetColor("_TintColor"),
+sunTex.GetComponent.<Renderer>().material.SetColor("_TintColor", Color.Lerp(sunTex.GetComponent.<Renderer>().material.GetColor("_TintColor"),
 sunColor3,timeLerpSun));
 
-sunHorizonTex.renderer.material.SetColor("_TintColor", Color.Lerp(sunHorizonTex.renderer.material.GetColor("_TintColor"),
+sunHorizonTex.GetComponent.<Renderer>().material.SetColor("_TintColor", Color.Lerp(sunHorizonTex.GetComponent.<Renderer>().material.GetColor("_TintColor"),
 sunHorizonColor3,timeLerpSun));
 }
 
 if(night){
-sunTex.renderer.material.SetColor("_TintColor", Color.Lerp(sunTex.renderer.material.GetColor("_TintColor"),
+sunTex.GetComponent.<Renderer>().material.SetColor("_TintColor", Color.Lerp(sunTex.GetComponent.<Renderer>().material.GetColor("_TintColor"),
 sunColor,timeLerpSun));
 
-sunHorizonTex.renderer.material.SetColor("_TintColor", Color.Lerp(sunHorizonTex.renderer.material.GetColor("_TintColor"),
+sunHorizonTex.GetComponent.<Renderer>().material.SetColor("_TintColor", Color.Lerp(sunHorizonTex.GetComponent.<Renderer>().material.GetColor("_TintColor"),
 sunHorizonColor,timeLerpSun));
 }
 
